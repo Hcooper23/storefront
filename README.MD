@@ -33,3 +33,27 @@ Create the Virtual Store application as follows:
     - Dispatches an action when one is clicked to “activate” it.
   - A <Products /> component:
     - Displays a list of products associated with the selected category.
+
+### Links and Resources
+
+- [GitHub Actions ci/cd](https://github.com/Hcooper23/storefront/actions)
+- [front-end application](https://codesandbox.io/p/github/Hcooper23/storefront/main?file=/.gitignore:1,1&workspaceId=d6b0a7b3-fc47-4e4d-b1fa-ce55109e7d9e)
+
+### Collaborators
+
+Class 401d53  
+
+### Setup
+
+#### How to initialize/run your application
+
+- Run `npm i` and then `npm start`
+
+#### Features / Routes
+
+#### Tests
+
+- Run `npm test` to see tests running. (none setup yet)
+
+#### UMLs
+![UML36](./Screenshot%202023-07-06%20at%209.10.14%20PM.png)
