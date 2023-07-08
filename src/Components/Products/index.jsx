@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Grid, Typography, Card, CardActions, CardContent, CardMedia, Button } from '@mui/material';
 
 function Products() {
   const activeCategory = useSelector(state => state.activeCategory);
@@ -10,21 +11,41 @@ function Products() {
     : products;
 
   return (
-    <div>
-      <h2>Products</h2>
+    <Grid container spacing={2}>
       {filteredProducts.length === 0 ? (
-        <p>No products available.</p>
+        <Grid item xs={12}>
+          <Typography variant="body1">No products available.</Typography>
+        </Grid>
       ) : (
-        <ul>
-          {filteredProducts.map(product => (
-            <li key={product.id}>
-              <h3>{product.name}</h3>
-              <p>{product.description}</p>
-            </li>
-          ))}
-        </ul>
+        filteredProducts.map((product, index) => (
+          <Grid item xs={3} sm={4} md={4} key={index}>
+            <Card variant="outlined">
+              <CardMedia
+                component="img"
+                height="140"
+                image={`https://source.unsplash.com/random/?${product.name}`}
+                alt="Random image"
+              />
+              <CardContent>
+                <Typography variant="h5" component="div">
+                  Name: {product.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Price: {product.price} dollars
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  In-Stock: {product.inStock}
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Add to Cart</Button>
+                <Button size="small">View Details</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+        ))
       )}
-    </div>
+    </Grid>
   );
 }
 

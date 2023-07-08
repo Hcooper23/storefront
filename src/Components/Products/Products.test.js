@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Products from '../Products/index';
+import Products from './index';
 
 test('renders Products component', () => {
   render(<Products />);
