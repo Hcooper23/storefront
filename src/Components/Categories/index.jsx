@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeProducts } from '../../store/products.jsx';
+import { fetchCategories } from '../../store/categories/index.js';
+import { changeProducts } from '../../store/products.js';
 import Link from '@mui/material/Link';
 
 function Categories() {
   const categories = useSelector(state => state.categories);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategories()); // Fetch categories from the remote API on component mount
+  }, [dispatch]);
 
   const categoryHandler = (category) => {
     dispatch(changeProducts(category));
@@ -29,3 +34,4 @@ function Categories() {
 }
 
 export default Categories;
+
