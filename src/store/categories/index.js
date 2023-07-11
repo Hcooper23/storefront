@@ -9,11 +9,16 @@ const initialState = {
 };
 
 const CHANGE_PRODUCTS = 'CHANGE_PRODUCTS';
+const FETCH_CATEGORIES = 'FETCH_CATEGORIES'; // Define a new action type
 
 export function changeProducts(category) {
   return { type: CHANGE_PRODUCTS, payload: category };
 }
 
+export function fetchCategories() {
+  // Implement logic to fetch categories from the remote API
+  return { type: FETCH_CATEGORIES };
+}
 
 function categoriesReducer(state = initialState, action) {
   switch (action.type) {

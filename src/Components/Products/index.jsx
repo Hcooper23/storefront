@@ -1,19 +1,18 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Grid, Typography, Card, CardActions, CardContent, CardMedia, Button } from '@mui/material';
 import { addToCart } from '../../store/cart.js';
 
 function Products() {
-  const activeCategory = useSelector(state => state.activeCategory);
+  const activeCategory = useSelector(state => state.categories.activeCategory);
   const products = useSelector(state => state.products);
   const dispatch = useDispatch();
 
-  const filteredProducts = activeCategory
+  const {filteredProducts} = activeCategory
     ? products.filter(product => product.category === activeCategory)
     : products;
 
   const handleAddToCart = (product) => {
-    dispatch(addToCart(product)); // Dispatch action to add the product to the cart
+    dispatch(addToCart(product));
   };
 
   return (
@@ -23,8 +22,8 @@ function Products() {
           <Typography variant="body1">No products available.</Typography>
         </Grid>
       ) : (
-        filteredProducts.map((product, index) => (
-          <Grid item xs={3} sm={4} md={4} key={index}>
+        filteredProducts.map((product) => (
+          <Grid item xs={3} sm={4} md={4} key={product.id}>
             <Card variant="outlined">
               <CardMedia
                 component="img"

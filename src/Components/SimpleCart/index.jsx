@@ -1,9 +1,8 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { Typography, List, ListItem, ListItemText } from '@mui/material';
 
 function SimpleCart() {
-  const cartItems = useSelector(state => state.cart);
+  const {cartItems} = useSelector(state => state.cart);
 
   return (
     <div>
