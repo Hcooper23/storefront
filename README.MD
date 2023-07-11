@@ -1,33 +1,38 @@
 # Phase 1 Requirements
-In phase 3, we will be connecting our Virtual Store to a live API so that our data is persistent and able to be separately managed.
 
-The user stories from Phases 1 and 2 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements.
+In phase 4, we will be completing work on our Virtual Store by adding two full page views to the application: Product Details and Checkout.
 
-- As a user, I want to interact with live inventory so that I have confidence that the displayed products are in stock.
-- As a user, I want to know to that when I add an item to my cart, that it is removed from inventory so that no other users can purchase it.
+The user stories from Phases 1, 2 and 3 remain unchanged. For this phase, we are now adding the following new user stories to meet the new requirements.
+
+- As a user, I want to see a full detail view of a product so that I can make a more informed choice about purchasing it.
+- As a user, I want to view my full cart and initiate the checkout process so that I can purchase my items and have them delivered.
 
 # Technical Requirements / Notes
+
 And as developers, here are the high level development tasks that address the above end user requirements and workflow.
 
-- Continue to use Material UI Components for layout and styling.
-- Load the category and product list from a remote API on page load.
-- Update the product quantity in stock when adding items to (or removing from) the cart.
-- Continue to use multiple reducers.
+- Add routing to the application.
+- Link every product to a page that displays the full product details.
+- Link the “Cart” summary in the header to a full shopping cart page with shipping/payment forms.
+- Additionally, we will be swapping out our Redux store and replacing it with a store built using Redux Toolkit.
 
 # Application Architecture
 
-- Add a new component to the page: <SimpleCart />
-  - Displays a short list (title only) of products in the cart.
-  - This should be present at all times.
-- Home Page Operation:
-  - When the user selects (clicks on) a category:
-    - Identify that category as selected.
-    - Show a list of products associated with the category, that have a quantity > 0.
-    - Add an “add to cart” button to each product.
-  - When a user clicks the “add to cart” button add the item to their cart:
-    - In the <SimpleCart /> component, show a running list of the items in the cart (just the titles).
-    - Change the (0) indicator in the header to show the actual number of items in the cart.
-    - Reduce the number in stock for that product.
+- Add <BrowserRouter /> to your application.
+  - Create a <Storefront /> component to contain all of the components viewable form the / route.
+
+- Create a new page component: <ProductDetails />.
+  - Alter each product on the listing screen to have a new “Product Details” button.
+  - When clicked, <Link to...> /products/## where ## is the product ID.
+  - On this page, show an expanded view of the product, including placeholders for additional information such as reviews, suggestions, etc.
+- Create a new page component: <ShoppingCart />
+  - Link to this page from the Cart (x) in the header, on the /cart route.
+  - On this page, show:
+    - A summary of items in tabular format.
+    - A final order total.
+    - A form allowing the user to enter their billing/shipping address and credit card information.
+    - On submit, simply draw an alert that says “Thank you for your purchase”
+      - We will not be processing transactions or storing orders just yet.
 
 ### Links and Resources
 
@@ -53,3 +58,5 @@ Class 401d53
 #### UMLs
 
 ![UML36](./Screenshot%202023-07-06%20at%209.10.14%20PM.png)
+
+/////////////////////////////////////////////////////////////////////

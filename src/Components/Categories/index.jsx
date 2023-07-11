@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCategories } from '../../store/categories/index.js';
-import { changeProducts } from '../../store/products.js';
+import { fetchCategories } from '../../store/categories'; // Updated import path
+import { changeProducts } from '../../store/products';
 import Link from '@mui/material/Link';
 
 function Categories() {
-  const categories = useSelector(state => state.categories);
+  const {categories} = useSelector(state => state.categories);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,4 +34,3 @@ function Categories() {
 }
 
 export default Categories;
-

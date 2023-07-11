@@ -1,12 +1,11 @@
-import React from 'react';
 import { AppBar, Container, Toolbar, Typography } from '@mui/material';
 
-const HeaderModified = () => {
+const Header = () => {
   return (
-    <AppBar position='static' sx={{ backgroundColor: 'white' }}>
+    <AppBar position='static' color='inherit'>
       <Container>
         <Toolbar disableGutters>
-          <Typography variant='h4' sx={{ color: 'black' }}>
+          <Typography variant='h4' color='textPrimary'>
             Virtual Store
           </Typography>
         </Toolbar>
@@ -15,4 +14,4 @@ const HeaderModified = () => {
   );
 };
 
-export default HeaderModified;
+export default Header;

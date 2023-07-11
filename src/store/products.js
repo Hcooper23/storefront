@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
   products: [
     { name: 'TV', category: 'electronics', price: 699.00, inStock: 5 },
     { name: 'Radio', category: 'electronics', price: 99.00, inStock: 15 },
@@ -10,7 +10,7 @@ const initialState = {
   ],
 };
 
-export const productsReducer = (state = initialState, action) => {
+const productsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'CHANGE_PRODUCTS':
       return {
@@ -36,3 +36,5 @@ export const reset = () => {
     type: 'RESET',
   };
 };
+
+export default productsReducer
